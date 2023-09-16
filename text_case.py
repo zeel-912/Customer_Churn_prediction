@@ -1,6 +1,6 @@
 import requests
 
-api_url = 'https://34.125.116.35:5000/predict'
+api_url = 'http://127.0.0.1:5000/predict'
 
 customer_data = {
     'Subscription_Length_Months': 10,
