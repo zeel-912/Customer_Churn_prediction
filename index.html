@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+</head>
+<body>
+    <h1>Customer Churn Prediction</h1>
+
+    <!-- Form to collect user input -->
+    <form id="churn-form">
+        <label for="subscription-length">Subscription Length (Months):</label>
+        <input type="number" id="subscription-length" name="Subscription_Length_Months" required><br><br>
+
+        <label for="monthly-bill">Monthly Bill:</label>
+        <input type="number" id="monthly-bill" name="Monthly_Bill" required><br><br>
+
+        <label for="total-usage">Total Usage (GB):</label>
+        <input type="number" id="total-usage" name="Total_Usage_GB" required><br><br>
+
+        <button type="submit">Predict Churn</button>
+    </form>
+
+    <!-- Display prediction result here -->
+    <div id="prediction-result"></div>
+
+    <!-- JavaScript to handle form submission and API request -->
+    <script>
+        const form = document.getElementById('churn-form');
+        const predictionResult = document.getElementById('prediction-result');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Collect user input data
+            const formData = new FormData(form);
+            const customerData = {};
+            formData.forEach((value, key) => {
+                customerData[key] = value;
+            });
+
+            // Send a POST request to the Flask API
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(customerData),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                predictionResult.textContent = `Churn Prediction: ${data.prediction}`;
+            } else {
+                predictionResult.textContent = 'Error predicting churn.';
+            }
+        });
+    </script>
+</body>
+</html>
