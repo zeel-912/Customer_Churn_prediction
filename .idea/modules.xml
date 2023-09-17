@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../fastApiProject/.idea/fastApiProject.iml" filepath="$PROJECT_DIR$/../fastApiProject/.idea/fastApiProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/flaskProject.iml" filepath="$PROJECT_DIR$/.idea/flaskProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/../flaskProject1/.idea/flaskProject1.iml" filepath="$PROJECT_DIR$/../flaskProject1/.idea/flaskProject1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../flask_api/.idea/flask_api.iml" filepath="$PROJECT_DIR$/../flask_api/.idea/flask_api.iml" />
     </modules>
   </component>
 </project>

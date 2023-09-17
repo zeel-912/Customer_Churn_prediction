@@ -3,7 +3,7 @@ from tensorflow.keras.models import load_model
 import pandas as pd
 
 app = Flask(__name__)
-model_path='/Users/zeelpatel/PycharmProjects/flaskProject1/trained_model.h5'
+model_path='trained_model.h5'
 model = load_model(model_path)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -15,7 +15,6 @@ def index():
                 'subscription_months': float(request.form['subscription_months']),
                 'monthly_bill': float(request.form['monthly_bill']),
                 'total_usage_gb': float(request.form['total_usage_gb']),
-                # Add more features as needed
             }
 
             # Convert the customer data to a DataFrame
